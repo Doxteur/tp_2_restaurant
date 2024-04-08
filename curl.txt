@@ -1,0 +1,12 @@
+// Create a new order
+curl -X POST -H "Content-Type: application/json" -d '{"customer_id":1, "table_number":5, "total_amount":50.99}' http://127.0.0.1:8000/api/orders
+
+// Get an order by id
+curl -X GET http://127.0.0.1:8000/api/orders/1
+
+// Update an order
+curl -X PUT -H "Content-Type: application/json" -d '{"customer_id":1, "table_number":1, "to
+tal_amount":60.99}' http://127.0.0.1:8000/api/orders/1
+
+// Delete an order
+curl -X DELETE http://127.0.0.1:8000/api/orders/{id}

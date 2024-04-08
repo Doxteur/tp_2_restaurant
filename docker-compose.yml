@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: tp-2-db
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: tp-2-db
+      MYSQL_USER: jimmy
+      MYSQL_PASSWORD: toor
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb:/var/lib/mysql
+    networks:
+      - tp-2-network
+  adminer:
+      image: adminer
+      ports:
+        - 50:8080
+      networks:
+        - tp-2-network
+volumes:
+  mariadb:
+
+networks:
+  tp-2-network:
+    driver: bridge
